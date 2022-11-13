@@ -1,10 +1,27 @@
-#include "test.h"
-#include <limits.h>
 
+#include <limits.h>
+#include <stdio.h>
+
+#define BLKB  "\e[40m"
+#define HYEL  "\e[0;93m"
+#define HGRN  "\e[0;92m"
+#define HWHT  "\e[0;97m"
+#define YEL   "\e[0;33m"
+#define RED   "\x1B[31m"
+#define GRN   "\x1B[32m"
+#define LGRN   "\e[0;92m"
+//#define BLU   "\x1B[34m"
+#define BLU   "\033[1;36m"
+#define MAG   "\x1B[35m"
+#define CYN   "\x1B[36m"
+#define WHT   "\x1B[37m"
+#define RESET "\x1B[0m"
+
+int ret_orig, ret_mine;
 
 void test_c()
 {
-    int ret_orig, ret_mine;
+    
 
     printf(HYEL"\n__TEST CHARS__________________________________________________\n\n" RESET);
     // printf(BLU"       %%%%  %%5.c     %%-5c     %%*c      %%-*c     %%c\n"RESET);
@@ -67,8 +84,6 @@ void test_c()
 
 void test_s()
 {
-    int ret_orig, ret_mine;
-
     printf(HYEL"\n__TEST STRINGS__________________________________________________\n\n" RESET);
 
     ret_orig =    printf("%s\n", "");
@@ -109,9 +124,7 @@ void test_s()
 
 void test_p()
 {
-    int ret_orig, ret_mine;
-
-        printf(HYEL"\n__TEST POINTERS__________________________________________________\n\n" RESET);
+    printf(HYEL"\n__TEST POINTERS__________________________________________________\n\n" RESET);
 		
     ret_orig =    printf("%p\n", "");
     ret_mine = ft_printf("%p\n", "");
@@ -138,8 +151,6 @@ void test_p()
 
 void test_d()
 {
-    int ret_orig, ret_mine;
-
     printf(HYEL"\n__TEST INTEGERS__________________________________________________\n\n" RESET);
     ret_orig =    printf("%d\n", 0);
     ret_mine = ft_printf("%d\n", 0);
@@ -191,7 +202,6 @@ void test_d()
 
 void test_i()
 {
-    int ret_orig, ret_mine;
     printf(HYEL"\n__TEST INTEGERS__________________________________________________\n\n" RESET);
 
     ret_orig =    printf("%i\n", 0);
@@ -240,14 +250,8 @@ void test_i()
 }
 
 
-
-
-
-
-
 void test_u()
 {
-    int ret_orig, ret_mine;
     printf(HYEL"\n__TEST UNSIGNED INTEGERS__________________________________________________\n\n" RESET);
 
     ret_orig =    printf("%u\n", 0);
@@ -406,14 +410,13 @@ void test_x()
 
 int main(void)
 {
-	// test_c();
+	test_c();
 	test_s();
 	test_p();
 	test_d();
 	test_i();
 	test_u();
 	test_x();
-
 
     //printf("new: [%#8x] ", 0x123);
 
